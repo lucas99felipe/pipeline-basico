@@ -14,11 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Espera por aprovação manual
-        uses: hmarr/auto-approve-action@v2
-        with:
+      - name: Aguardar aprovação manual
+        uses: microsoft/push-to-approve@v1
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "Aguardando aprovação manual para continuar..."
 
   deploy:
     runs-on: ubuntu-latest
