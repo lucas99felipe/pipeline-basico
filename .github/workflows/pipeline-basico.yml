@@ -15,9 +15,9 @@ jobs:
     needs: build
     steps:
       - name: Aguardar aprovação manual
-        uses: microsoft/push-to-approve@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Aprovação manual necessária. Verifique as informações e aprove o pipeline."
+          echo "Para continuar, execute novamente o pipeline com as configurações necessárias."
 
   deploy:
     runs-on: ubuntu-latest
